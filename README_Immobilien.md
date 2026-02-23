@@ -4,12 +4,14 @@ Grafische Anwendung zur Schätzung des Immobilienwertes in Deutschland auf Basis
 
 ## Funktionsweise
 
-Der Benutzer gibt Grundstücksfläche, Wohnfläche und Baujahr ein und wählt aus Dropdown-Menüs: Bundesland, Lage (Stadt/Land), Hausart, Ausstattung, Architektenhaus, Makler und Denkmalschutz. Das Ergebnis wird sofort als geschätzter Preis in Euro angezeigt.
+Der Benutzer gibt Grundstücksfläche, Wohnfläche und Baujahr ein und wählt aus Dropdown-Menüs: Bundesland, Lage (Stadt/Land), Hausart, Ausstattung, Architektenhaus, Makler und Denkmalschutz. Der geschätzte Preis wird sofort in Euro angezeigt.
 
-## Berechnungslogik
+## Berechnungsformel
 
-Basis: Grundstück × 160 €/m² + Wohnfläche × 2.500 €/m² − Altersabschlag (0,1 € pro Jahr).
-Anschließend werden Faktoren aus `datei.json` multipliziert (z.B. Hamburg × 2,5, Sachsen-Anhalt × 0,6).
+```
+Basispreis = Grundstück × 160 €/m² + Wohnfläche × 2.500 €/m² − Altersabschlag
+Gesamtpreis = Basispreis × Faktor(Bundesland) × Faktor(Ort) × ... (aus datei.json)
+```
 
 ## Dateien
 
